@@ -1,3 +1,10 @@
+#secrets
+bnet-bot-id
+bnet-bot-secret
+discord-bot-token
+
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

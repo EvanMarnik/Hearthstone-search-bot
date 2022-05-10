@@ -4,6 +4,8 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix='>')
 
+botToken = open("discord-bot-token").read()
+
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
@@ -29,4 +31,4 @@ async def echo(ctx, *, content:str):
         return
     await ctx.send(content)
 
-bot.run('OTY1MjkxODgxMzg4OTg2MzY5.YlxEHg.LUhoYHurrSMBkqegyn3l2T-a_gA')
+bot.run(botToken)
