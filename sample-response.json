@@ -1,0 +1,99 @@
+{
+    "cards": [
+        {
+            "id": 40408,
+            "collectible": 1,
+            "slug": "40408-kazakus",
+            "classId": 12,
+            "multiClassIds": [
+                9,
+                4,
+                6
+            ],
+            "cardTypeId": 4,
+            "cardSetId": 25,
+            "rarityId": 5,
+            "artistName": "Jomaro Kindred",
+            "health": 3,
+            "attack": 3,
+            "manaCost": 4,
+            "name": "Kazakus",
+            "text": "<b>Battlecry:</b> If your deck has no duplicates, create a custom spell.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3629e2071a841c896c12357e6af3045f11854a4055bd686e01903f9745ee889d.png",
+            "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0ac6afd0052ff2b005afeaa1b21aa0ddcf0870f059964248e2c7777658f31d3.png",
+            "flavorText": "The mysterious leader of the Kabal is NOT a dragon, and does NOT deal in illegal potions. Any public statements to the contrary will be met with litigation and Dragonfire Potions.",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28463220b67d9c48824ff2fb5875af51872c9bfeb9990b982fa8e96eda64c341.png",
+            "childIds": [
+                41577,
+                41603,
+                41604,
+                41591,
+                41593,
+                41592
+            ],
+            "keywordIds": [
+                8,
+                29
+            ]
+        },
+        {
+            "id": 62588,
+            "collectible": 1,
+            "slug": "62588-kazakus-golem-shaper",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1525,
+            "rarityId": 5,
+            "artistName": "Anton Zemskov",
+            "health": 3,
+            "attack": 3,
+            "manaCost": 4,
+            "name": "Kazakus, Golem Shaper",
+            "text": "<b>Battlecry:</b> If your deck has no 4-Cost cards, build a custom Golem.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7128ff2c3032b99106c9e7e927922f3c062fc13df1f773e17ae64bbd73cb0d5.png",
+            "imageGold": "",
+            "flavorText": "With a little love and some tenderness, we’ll CRUSH OUR FOES!",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e7a02e5ba9c2b0df0abe40ce3861ec42016d09ab991a911ee66bfe0cdf9bc08.png",
+            "childIds": [
+                63666,
+                63667,
+                63668
+            ],
+            "keywordIds": [
+                8
+            ],
+            "duels": {
+                "relevant": true,
+                "constructed": true
+            }
+        },
+        {
+            "id": 71684,
+            "collectible": 1,
+            "slug": "71684-kazakusan",
+            "classId": 12,
+            "multiClassIds": [],
+            "minionTypeId": 24,
+            "cardTypeId": 4,
+            "cardSetId": 1626,
+            "rarityId": 5,
+            "artistName": "Alex Horley Orlandelli",
+            "health": 8,
+            "attack": 8,
+            "manaCost": 8,
+            "name": "Kazakusan",
+            "text": "<b>Battlecry:</b> If you played 4 other Dragons this game, craft a custom deck of Treasures. <i>( left!)</i> <i>(Ready!)</i>",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6fcb839d6961a33460f6ecf4f110300bff2c6ea7ab426c0929143621576d2dfb.png",
+            "imageGold": "",
+            "flavorText": "Kazakus had always seemed too clever a sort to bottle a brew that could do him any harm. Perhaps it should come as no surprise, then, that the originator of the Dragonfire Potion was a dragon himself.",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4be297cfa56798375306be4b5bdda87db8e7fb74a4d8e221e60f28b43845934.png",
+            "keywordIds": [
+                8
+            ]
+        }
+    ],
+    "cardCount": 3,
+    "pageCount": 1,
+    "page": 1
+}
