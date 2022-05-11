@@ -10,7 +10,7 @@ class Card:
         self.manaCost = json["manaCost"]
         self.text = json["text"]
         self.image = json["image"]
-        self.collectible = json["collectible"] ==1
+        self.collectible = json["collectible"] == 1
 
 class MinionCard(Card):
     health: int = None
@@ -40,7 +40,10 @@ class WeaponCard(Card):
         Card.__init__(self, json=json)
         self.attack = json["attack"]
         self.durability = json["durability"]
-    
+        
+class HeroCard(Card):
+    armor: int = None
+
 
 def json_to_cards(json: dict) -> list[Card]:
     cards: list[Card] = []
