@@ -1,3 +1,5 @@
+from ctypes import sizeof
+from math import ceil
 import discord
 from discord.ext import commands
 from blizzapi import card_search
@@ -20,10 +22,10 @@ async def main():
 async def card(ctx, *, content:str):
     res = await card_search(content)
     lis = json_to_cards(res)
+    length = len(lis)
+    if length > 4:
+        await ctx.send("```Page 1/" + str(ceil((length/4))) + "```")
     for card in lis:
-        await ctx.send(card.text)
+        await ctx.send(card.image)
 
-#asyncio.run(main())
-
-#main shouldnt access either API.
 bot.run(botToken)
