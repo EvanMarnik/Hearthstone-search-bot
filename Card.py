@@ -1,4 +1,3 @@
-from asyncio.windows_events import NULL
 import enum
 class Card:
     name: str = None
@@ -47,7 +46,9 @@ class HeroCard(Card):
     armor: int = None
     def __init__(self, json: dict):
         Card.__init__(self, json=json)
-        self.armor = json["armor"]
+        if "armor" in json:
+            self.armor = json["armor"] #have to do this since the literal heroes are
+                                        #treated as hero 'cards' but dont have armor
 
 class spellSchool(enum.Enum):
     ARCANE = 1
@@ -77,7 +78,7 @@ class rarity(enum.Enum):
     RARE = 3
     EPIC = 4
     LEGENDARY = 5
-    NONE = NULL
+    NONE = None
     
 class cardClass(enum.Enum):
     DEMON_HUNTER = 14
