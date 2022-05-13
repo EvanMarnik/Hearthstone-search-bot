@@ -1,4 +1,57 @@
 import enum
+class spellSchool(enum.Enum):
+    Arcane = 1
+    Fire = 2
+    Frost = 3
+    Nature = 4
+    Holy = 5
+    Shadow = 6
+    Fel = 7
+    def __str__(self):
+        return self.name
+
+class minionType(enum.Enum):
+    Beast = 20
+    Dragon= 24
+    Murloc = 14
+    Pirate = 23
+    Elemental = 18
+    Naga = 92
+    Quilboar = 43
+    Demon = 15
+    Mech = 17
+    Totem = 21
+    All = 26
+    def __str__(self):
+        return self.name
+
+class rarity(enum.Enum):
+    Basic = 1
+    Common = 2
+    Rare = 3
+    Epic = 4
+    Legendary = 5
+    NONE = None
+    def __str__(self):
+        return self.name
+    
+class cardClass(enum.Enum):
+    Demon_Hunter = 14
+    Druid = 2
+    Hunter = 3
+    Mage = 4
+    Paladin = 5
+    Priest= 6
+    Rogue = 7
+    Shaman = 8
+    Warlock = 9
+    Warrior = 10
+    Neutral = 12
+    Death_Knight = 1
+    Dream = 11
+    def __str__(self):
+        return self.name
+        
 class Card:
     name: str = None
     manaCost: int = None
@@ -21,15 +74,17 @@ class MinionCard(Card):
         self.health = json["health"]
         self.attack = json["attack"]
         if "minionType" in json:
-            type = json["minionType"]
+            s = json["minionType"]
+            self.type = minionType(s)
 
 
 class SpellCard(Card):
-    school: str = None
+    school: spellSchool = None
     def __init__(self, json: dict):
         Card.__init__(self, json=json)
         if "spellSchoolId" in json:
-            school = json["spellSchoolId"]
+            s = json["spellSchoolId"]
+            self.school = spellSchool(s)
 
 
 class WeaponCard(Card):
@@ -50,50 +105,7 @@ class HeroCard(Card):
             self.armor = json["armor"] #have to do this since the literal heroes are
                                         #treated as hero 'cards' but dont have armor
 
-class spellSchool(enum.Enum):
-    ARCANE = 1
-    FIRE = 2
-    FROST = 3
-    NATURE = 4
-    HOLY = 5
-    SHADOW = 6
-    FEL = 7
 
-class minionType(enum.Enum):
-    BEAST = 20
-    DRAGON = 24
-    MURLOC = 14
-    PIRATE = 23
-    ELEMENTAL = 18
-    NAGA = 92
-    QUILBOAR = 43
-    DEMON = 15
-    MECH = 17
-    TOTEM = 21
-    ALL = 26
-
-class rarity(enum.Enum):
-    BASIC = 1
-    COMMON = 2
-    RARE = 3
-    EPIC = 4
-    LEGENDARY = 5
-    NONE = None
-    
-class cardClass(enum.Enum):
-    DEMON_HUNTER = 14
-    DRUID = 2
-    HUNTER = 3
-    MAGE = 4
-    PALADIN = 5
-    PRIEST = 6
-    ROGUE = 7
-    SHAMAN = 8
-    WARLOCK = 9
-    WARRIOR = 10
-    NEUTRAL = 12
-    DEATH_KNIGHT = 1
-    DREAM = 11
 
 def json_to_cards(json: dict) -> list[Card]:
     cards: list[Card] = []
