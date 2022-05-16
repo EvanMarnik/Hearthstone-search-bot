@@ -25,12 +25,12 @@ async def card(ctx, *, content:str):
     length = len(lis)
 
     def check(m):
-                return m.content == "next" and m.channel == ctx.channel
+        return m.content == "next" and m.channel == ctx.channel
 
     if length == 0:
         await ctx.send("No cards found! Check your spelling.")
 
-        #dont need pages for 1 page results
+    #dont need pages for 1 page results
     elif length <=3:
         await ctx.send(str(length) + " cards found.")
         for card in lis:
@@ -48,7 +48,11 @@ async def card(ctx, *, content:str):
             card_counter = card_counter + 1
             await ctx.send(card.image)
             if card_counter == 3:
-                msg = await bot.wait_for("message", check=check)
+
+                msg = await bot.wait_for("message")
+                if 'next' not in msg.content or '>' in msg.content or msg.content == '>next':
+                    return
+
                 page_counter = page_counter + 1
                 if page_counter == pages:
                     await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ")```")
