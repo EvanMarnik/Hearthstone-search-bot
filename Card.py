@@ -26,8 +26,8 @@ class minionType(enum.Enum):
         return self.name
 
 class rarity(enum.Enum):
-    Basic = 1
-    Common = 2
+    Basic = 2
+    Common = 1
     Rare = 3
     Epic = 4
     Legendary = 5
@@ -51,20 +51,23 @@ class cardClass(enum.Enum):
     Dream = 11
     def __str__(self):
         return self.name
-        
+
 class Card:
     name: str = None
     manaCost: int = None
     text: str = None
     image: str = None
     collectible: bool = None
-
+    card_class: cardClass = None
+    card_rarity: rarity = None
     def __init__(self, json: dict):
         self.name = json["name"]
         self.manaCost = json["manaCost"]
         self.text = json["text"]
         self.image = json["image"]
         self.collectible = json["collectible"] == 1
+        self.card_class = cardClass(json["classId"])
+        self.card_rarity = rarity(json["rarityId"])
 
 class MinionCard(Card):
     health: int = None

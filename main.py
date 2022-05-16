@@ -23,21 +23,42 @@ async def card(ctx, *, content:str):
     res = await card_search(content)
     lis = json_to_cards(res)
     length = len(lis)
+
+    def check(m):
+                return m.content == "next" and m.channel == ctx.channel
+
     if length == 0:
         await ctx.send("No cards found! Check your spelling.")
-    elif length <=4:
+
+        #dont need pages for 1 page results
+    elif length <=3:
         await ctx.send(str(length) + " cards found.")
         for card in lis:
             await ctx.send(card.image)
-    elif length < 100:
+
+
+    #send cards in groups of 3 (pages). wanted to do 4, but it seems fastest in accessing 3
+    elif length <= 40:
         await ctx.send(str(length) + " cards found.")
-        counter = 1
-        await ctx.send("```Page " + str(counter) + "/" + str(ceil((length/4))) + "```")
+        page_counter = 1
+        pages = (ceil((length/3)))
+        await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' to view more```")
+        card_counter = 0
         for card in lis:
+            card_counter = card_counter + 1
             await ctx.send(card.image)
-    #else:
-        #await ctx.send("Woah! Too many cards!")    would use this, but they already cap searches to 40 results 
-        #await ctx.send("Please narrow your search down a bit.")
+            if card_counter == 3:
+                msg = await bot.wait_for("message", check=check)
+                page_counter = page_counter + 1
+                if page_counter == pages:
+                    await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ")```")
+                else:
+                    await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' to view more```")
+                card_counter = 0
+            
+    else:
+        await ctx.send("Woah! Too many cards!")  #would use this, but they already cap searches to 40 results 
+        await ctx.send("Please narrow your search down a bit.")
 
 
 
@@ -47,4 +68,5 @@ async def test(ctx, *, content:str):
     lis = json_to_cards(res)
     for card in lis:
         await ctx.send(str(vars(card)))
+    
 bot.run(botToken)
