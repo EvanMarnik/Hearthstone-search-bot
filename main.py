@@ -17,15 +17,15 @@ async def main():
     lis = json_to_cards(res)
     for card in lis:
         print(card.text)
-
+    
 @bot.command()
-async def card(ctx, *, content:str):
+async def image(ctx, *, content:str):
     res = await card_search(content)
     lis = json_to_cards(res)
     length = len(lis)
-
+    
     def check(m):
-        return m.content == "next" and m.channel == ctx.channel
+        return m.channel == ctx.channel and m.author == ctx.author
 
     if length == 0:
         await ctx.send("No cards found! Check your spelling.")
@@ -39,7 +39,7 @@ async def card(ctx, *, content:str):
 
     #send cards in groups of 3 (pages). wanted to do 4, but it seems fastest in accessing 3
     elif length <= 40:
-        await ctx.send(str(length) + " cards found.")
+        await ctx.send(str(length) + " cards returned. (but more found! Narrow your search a bit to find what you need.).")
         page_counter = 1
         pages = (ceil((length/3)))
         await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' to view more```")
@@ -48,10 +48,11 @@ async def card(ctx, *, content:str):
             card_counter = card_counter + 1
             await ctx.send(card.image)
             if card_counter == 3:
+                msg = await bot.wait_for("message", check=check)
 
-                msg = await bot.wait_for("message")
-                if 'next' not in msg.content or '>' in msg.content or msg.content == '>next':
+                if ('next' not in msg.content or '>' in msg.content):
                     return
+
 
                 page_counter = page_counter + 1
                 if page_counter == pages:
@@ -67,7 +68,7 @@ async def card(ctx, *, content:str):
 
 
 @bot.command()
-async def test(ctx, *, content:str):
+async def card(ctx, *, content:str):
     res = await card_search(content)
     lis = json_to_cards(res)
     for card in lis:
