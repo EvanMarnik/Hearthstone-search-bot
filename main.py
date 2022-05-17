@@ -45,7 +45,7 @@ async def image(ctx, *, content:str):
             await ctx.send(str(length) + " cards found.")
         page_counter = 1
         pages = (ceil((length/3)))
-        await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' to view more```")
+        await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' as your next message to view more```")
         card_counter = 0
         for card in lis:
             card_counter = card_counter + 1
@@ -61,7 +61,7 @@ async def image(ctx, *, content:str):
                 if page_counter == pages:
                     await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ")```")
                 else:
-                    await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' to view more```")
+                    await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' as your next message to view more```")
                 card_counter = 0
             
     else:
