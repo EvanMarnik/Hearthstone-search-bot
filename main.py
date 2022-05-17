@@ -39,7 +39,10 @@ async def image(ctx, *, content:str):
 
     #send cards in groups of 3 (pages). wanted to do 4, but it seems fastest in accessing 3
     elif length <= 40:
-        await ctx.send(str(length) + " cards returned. (but more found! Narrow your search a bit to find what you need.).")
+        if length == 40:
+            await ctx.send(str(length) + " cards returned. (but more found! Narrow your search a bit to find what you need.).")
+        else:
+            await ctx.send(str(length) + " cards found.")
         page_counter = 1
         pages = (ceil((length/3)))
         await ctx.send("```(Page " + str(page_counter) + "/" + str(pages) + ") Type 'next' to view more```")
