@@ -89,7 +89,6 @@ class SpellCard(Card):
             s = json["spellSchoolId"]
             self.school = spellSchool(s)
 
-
 class WeaponCard(Card):
     durability: int = None
     attack: int = None
@@ -98,8 +97,6 @@ class WeaponCard(Card):
         self.attack = json["attack"]
         self.durability = json["durability"]
 
-
-
 class HeroCard(Card):
     armor: int = None
     def __init__(self, json: dict):
@@ -107,8 +104,6 @@ class HeroCard(Card):
         if "armor" in json:
             self.armor = json["armor"] #have to do this since the literal heroes are
                                         #treated as hero 'cards' but dont have armor
-
-
 
 def json_to_cards(json: dict) -> list[Card]:
     cards: list[Card] = []
