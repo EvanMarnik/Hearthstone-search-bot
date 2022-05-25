@@ -2,9 +2,11 @@
 A bot for searching Hearthstone cards
 
 ## Available commands
-'>text' - returns the text of found cards
+'>image [card name or prefix of]' - returns the image of found cards
 
-'>card' - returns all aspects of found cards
+'>text [card name or prefix of]' - returns the text of found cards
+
+'>card [card name or prefix of]' - returns all aspects of found cards (class, name, text, cost etc)
 
 -----------------------------
 *this is a work in progress and will be updated with new searches and features*
