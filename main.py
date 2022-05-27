@@ -17,6 +17,11 @@ async def main():
     lis = json_to_cards(res)
     for card in lis:
         print(card.text)
+
+@bot.command()
+async def start(ctx):
+    await ctx.send('Welcome to Hearthstone Search Bot! Available commands are: image, text, and card.\nA proper search would look like this:\n```">[command] [card name]"```\nFor example: >image reno jackson')
+
     
 @bot.command()
 async def image(ctx, *, content:str):
