@@ -20,7 +20,7 @@ async def main():
 
 @bot.command()
 async def start(ctx):
-    await ctx.send('Welcome to Hearthstone Search Bot! Available commands are: image, text, and card.\nA proper search would look like this:\n```">[command] [card name]"```\nFor example: >image reno jackson')
+    await ctx.send('Welcome to Hearthstone Search Bot! \nAvailable commands are: image, text, and card.\nA proper search would look like this:\n```">[command] [card name]"```\nFor example: >image reno jackson')
 
     
 @bot.command()
@@ -91,7 +91,7 @@ async def card(ctx, *, content:str):
     elif length <=3:
         await ctx.send(str(length) + " cards found.")
         for card in lis:
-            await ctx.send("```" + card.name + ": " + card.text.replace("<b>", "").replace("</b>", "") + "```")
+            await ctx.send(str(vars(card)))
 
 
     #send cards in groups of 3 (pages). wanted to do 4, but it seems fastest in accessing 3
