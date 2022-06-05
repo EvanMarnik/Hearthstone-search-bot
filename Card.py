@@ -57,6 +57,7 @@ class Card:
     manaCost: int = None
     text: str = None
     image: str = None
+    flavor: str = None
     collectible: bool = None
     card_class: cardClass = None
     card_rarity: rarity = None
@@ -68,6 +69,7 @@ class Card:
         self.collectible = json["collectible"] == 1
         self.card_class = cardClass(json["classId"])
         self.card_rarity = rarity(json["rarityId"])
+        self.flavor = json["flavorText"]
 
 class MinionCard(Card):
     health: int = None
