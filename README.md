@@ -1,4 +1,4 @@
-# discord-bot
+# HS Search Bot
 A bot for searching Hearthstone cards
 
 ADD HERE: https://discord.com/api/oauth2/authorize?client_id=965291881388986369&permissions=0&scope=bot
