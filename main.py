@@ -156,7 +156,7 @@ async def text(ctx, *, content:str):
         card_counter = 0
         for card in lis:
             card_counter = card_counter + 1
-            await ctx.send(card.text)
+            await ctx.send("```" + card.name + ": " + card.text.replace("<b>", "").replace("</b>", "") + "```")
             if card_counter == 3:
                 msg = await bot.wait_for("message", check=check)
 
