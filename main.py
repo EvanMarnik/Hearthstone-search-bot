@@ -8,7 +8,8 @@ import Card
 from Card import json_to_cards
 
 bot = commands.Bot(command_prefix='>')
-
+import os
+access_token= os.environ["BOT_TOKEN"]
 botToken = open("discord-bot-token").read()
 
 
@@ -175,4 +176,4 @@ async def text(ctx, *, content:str):
         await ctx.send("Woah! Too many cards!")  #would use this, but they already cap searches to 40 results 
         await ctx.send("Please narrow your search down a bit.")
     
-bot.run(botToken)
+bot.run(access_token)
