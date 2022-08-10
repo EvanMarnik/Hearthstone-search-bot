@@ -1,10 +1,14 @@
 import json
 import asyncio
-
+import os
 async def card_search(text):
     # OAuth
-    client_id = open("bnet-bot-id").read()
-    client_secret = open("bnet-bot-secret").read()
+
+    #uncomment out for local editing
+    #client_id = open("bnet-bot-id").read()
+    #client_secret = open("bnet-bot-secret").read()
+    client_id = os.environ["CLIENT_ID"]
+    client_secret = os.environ["CLIENT_SECRET"]
     token_url = 'https://oauth.battle.net/token'
 
         #optimize token access

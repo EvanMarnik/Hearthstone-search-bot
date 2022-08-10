@@ -6,10 +6,13 @@ from blizzapi import card_search
 import asyncio
 import Card
 from Card import json_to_cards
+import os
 
 bot = commands.Bot(command_prefix='>')
-import os
-access_token= os.environ["BOT_TOKEN"]
+
+botToken= os.environ["BOT_TOKEN"]
+
+#uncomment for local
 #botToken = open("discord-bot-token").read()
 
 
@@ -176,4 +179,4 @@ async def text(ctx, *, content:str):
         await ctx.send("Woah! Too many cards!")  #would use this, but they already cap searches to 40 results 
         await ctx.send("Please narrow your search down a bit.")
     
-bot.run(access_token)
+bot.run(botToken)
