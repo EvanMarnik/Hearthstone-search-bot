@@ -10,7 +10,7 @@ from Card import json_to_cards
 bot = commands.Bot(command_prefix='>')
 import os
 access_token= os.environ["BOT_TOKEN"]
-botToken = open("discord-bot-token").read()
+#botToken = open("discord-bot-token").read()
 
 
 async def main():
