@@ -9,7 +9,7 @@ from Card import json_to_cards
 import os
 
 bot = commands.Bot(command_prefix='>')
-
+#comment for heroku
 botToken= os.environ["BOT_TOKEN"]
 
 #uncomment for local
@@ -26,7 +26,6 @@ async def main():
 async def start(ctx):
     await ctx.send('Welcome to Hearthstone Search Bot! \nAvailable commands are: image, text, and card.\nA proper search would look like this:\n```">[command] [card name]"```\nFor example: >image reno jackson')
 
-    
 @bot.command()
 async def image(ctx, *, content:str):
     res = await card_search(content)
@@ -62,7 +61,7 @@ async def image(ctx, *, content:str):
             if card_counter == 3:
                 msg = await bot.wait_for("message", check=check)
 
-                if ('next' not in msg.content or '>' in msg.content):
+                if ('next' not in msg.content.lower or '>' in msg.content):
                     return
 
 
